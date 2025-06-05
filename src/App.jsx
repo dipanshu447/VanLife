@@ -1,4 +1,4 @@
-import Layout from './components/layout.jsx';
+import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Vans from './pages/Vans/Vans.jsx';

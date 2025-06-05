@@ -46,7 +46,7 @@ export default function Vans() {
         <div className="grow px-5 lg:px-6 flex flex-col gap-3 mt-3">
             <h1 className="text-[#161616] font-bold text-2xl md:text-3xl">Explore our van options</h1>
             <div className="flex items-center space-x-2 sm:justify-between">
-                <div className="text-[#4D4D4D] text-xs sm:text-sm space-x-2 sm:space-x-4">
+                <div className="text-[#4D4D4D] text-[10px] sm:text-sm space-x-2 sm:space-x-4">
                     <button className="bg-[#FFEAD0] font-medium py-1.5 px-4 rounded-md cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.12,0.08,0,1.59)] hover:bg-[#E17654] hover:text-[#FFEAD0]">Simple</button>
                     <button className="bg-[#FFEAD0] font-medium py-1.5 px-4 rounded-md cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.12,0.08,0,1.59)] hover:bg-[#161616] hover:text-[#FFEAD0]">Luxury</button>
                     <button className="bg-[#FFEAD0] font-medium py-1.5 px-4 rounded-md cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.12,0.08,0,1.59)] hover:bg-[#115E59] hover:text-[#FFEAD0]">Rugged</button>

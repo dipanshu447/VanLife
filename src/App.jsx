@@ -6,9 +6,14 @@ import VansDetails from './pages/Vans/VansDetails.jsx';
 import Dashboard from './pages/Host/Dashboard.jsx';
 import Income from './pages/Host/Income.jsx';
 import Reviews from './pages/Host/Reviews.jsx';
+import HostVans from './pages/Host/HostVans.jsx';
+import HostVansDetail from './pages/Host/HostVansDetail.jsx';
+import Pricing from './pages/Host/HostVanDetails/Pricing.jsx';
+import Photos from './pages/Host/HostVanDetails/Photos.jsx';
 import HostLayout from './components/HostLayout.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './server.js';
+import Info from './pages/Host/HostVanDetails/Info.jsx';
 
 export default function App() {
   return (
@@ -25,6 +30,12 @@ export default function App() {
               <Route index element={<Dashboard />} />
               <Route path='income' element={<Income />} />
               <Route path='reviews' element={<Reviews />} />
+              <Route path='vans' element={<HostVans />} />
+              <Route path='vans/:id' element={<HostVansDetail />}>
+                <Route index element={<Info />}/>
+                <Route path='pricing' element={<Pricing />}/>
+                <Route path='photos' element={<Photos />}/>
+              </Route>
             </Route>
           </Route>
         </Routes>

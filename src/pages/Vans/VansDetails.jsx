@@ -20,8 +20,8 @@ export default function VansDetails() {
     });
     return (
         <div className="grow flex flex-col px-5">
-            <Link to='/vans'>
-                <div className="flex items-center gap-1 text-xs underline text-[#201F1D] lg:mb-6">
+            <Link to='..' relative="path">
+                <div className="flex items-center gap-1 text-xs font-medium underline text-[#201F1D] lg:mb-6">
                     <img className="w-5 h-auto" src="https://img.icons8.com/?size=100&id=15815&format=png&color=858585" alt="leftarrow" />
                     <span className="cursor-pointer">Back to all vans</span>
                 </div>

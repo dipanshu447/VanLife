@@ -53,10 +53,10 @@ export default function Vans() {
                 </div>
                 <a className="text-xs sm:text-sm text-[#4D4D4D] underline ml-5" href="#">Clear filters</a>
             </div>
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
+            {vans.length > 0 ? <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
             lg:grid-cols-5 gap-x-6 gap-y-8 my-10">
                 {allVans}
-            </div>
+            </div> : <h3 className="mt-20 text-center text-xl">Loading....</h3>}
         </div>
     )
 }

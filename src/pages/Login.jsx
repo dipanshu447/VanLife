@@ -30,7 +30,7 @@ export default function Login() {
 
     return (
         <Form method="post" className="grow px-5 lg:px-6 flex flex-col gap-3 mt-8 items-center" replace>
-            <h1 className="text-2xl font-bold text-[#161616]">Sign in to your account</h1>
+            <h1 className="text-2xl font-bold text-[#161616]">Log in to your account</h1>
             {message && <h2 className="text-red-500 font-semibold text-lg">{message}</h2>}
             {errorMessage && <h2 className="text-red-500 font-semibold text-lg">{errorMessage}</h2>}
             <div className="mt-4 flex flex-col w-full md:w-2xl">

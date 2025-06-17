@@ -1,17 +1,15 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import { Link, NavLink, useParams, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { getHostVans } from '../../api';
+import { requireAuth } from '../../utils';
+
+export async function loader({ request, params }) {
+    await requireAuth(request);
+    return getHostVans(params.id);
+}
 
 export default function HostVansDetail() {
-    const params = useParams();
-    const [vandetail, setvandetail] = useState(null);
-
-    useEffect(() => {
-        fetch(`/api/host/vans/${params.id}`)
-            .then(response => response.json())
-            .then(data => setvandetail(data.vans[0]))
-
-    }, [params.id]);
+    const vandetail = useLoaderData()[0];
 
     const typeStyles = clsx("text-[#FFEAD0] text-[11px] capitalize py-1 px-3 font-semibold cursor-pointer rounded-md lg:text-sm", {
         "bg-[#E17654]": vandetail?.type == "simple",
@@ -21,13 +19,10 @@ export default function HostVansDetail() {
 
     return (
         <div className="grow flex flex-col mt-10">
-            <Link to='..' relative='path'>
-                <div className="flex items-center gap-1 text-xs underline font-medium text-[#201F1D]">
-                    <img className="w-5 h-auto cursor-pointer" src="https://img.icons8.com/?size=100&id=15815&format=png&color=858585" alt="leftarrow" />
-                    <span className="cursor-pointer">Back to all vans</span>
-                </div>
+            <Link to='..' relative="path" className="text-xs font-medium text-[#201F1D]  cursor-pointer">
+                &larr; <span className="underline">Back to all vans</span>
             </Link>
-            {vandetail ? <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:gap-6 px-5 py-4 rounded-sm bg-white">
+            <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:gap-6 px-5 py-4 rounded-sm bg-white">
                 <div className='flex sm:flex-col gap-4 sm:gap-3'>
                     <img className="w-[40%] sm:w-full max-w-sm object-cover rounded-sm transition-all duration-800 ease-[cubic-bezier(0.12,0.08,0,1.59)] hover:shadow-xl" src={vandetail.imageUrl} alt={`Image of ${vandetail.name}`} />
                     <div className=' grow flex flex-col items-baseline'>
@@ -61,7 +56,7 @@ export default function HostVansDetail() {
                     </ul>
                     <Outlet context={vandetail} />
                 </nav>
-            </div> : <h3 className="mt-20 text-center text-xl">Loading....</h3>}
+            </div>
         </div>
     )
-} 
+}

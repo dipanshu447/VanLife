@@ -1,27 +1,20 @@
 import clsx from 'clsx';
-import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
-import { getHostVans } from '../../api';
-import { requireAuth } from '../../utils';
-
-export async function loader({ request, params }) {
-    await requireAuth(request);
-    return getHostVans(params.id);
-}
+import { Suspense } from 'react';
+import { Link, NavLink, Outlet, useLoaderData, Await } from 'react-router-dom';
+import HostVanDetailSkeleton from '../../skeletons/HostVanDetailSkeleton';
 
 export default function HostVansDetail() {
-    const vandetail = useLoaderData()[0];
+    const vandetailData = useLoaderData();
 
-    const typeStyles = clsx("text-[#FFEAD0] text-[11px] capitalize py-1 px-3 font-semibold cursor-pointer rounded-md lg:text-sm", {
-        "bg-[#E17654]": vandetail?.type == "simple",
-        "bg-[#115E59]": vandetail?.type == "rugged",
-        "bg-[#161616]": vandetail?.type == "luxury"
-    });
+    function renderHostVanDetails(resolvedData) {
+        const vandetail = resolvedData[0];
+        const typeStyles = clsx("text-[#FFEAD0] text-[11px] capitalize py-1 px-3 font-semibold cursor-pointer rounded-md lg:text-sm", {
+            "bg-[#E17654]": vandetail?.type == "simple",
+            "bg-[#115E59]": vandetail?.type == "rugged",
+            "bg-[#161616]": vandetail?.type == "luxury"
+        });
 
-    return (
-        <div className="grow flex flex-col mt-10">
-            <Link to='..' relative="path" className="text-xs font-medium text-[#201F1D]  cursor-pointer">
-                &larr; <span className="underline">Back to all vans</span>
-            </Link>
+        return (
             <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:gap-6 px-5 py-4 rounded-sm bg-white">
                 <div className='flex sm:flex-col gap-4 sm:gap-3'>
                     <img className="w-[40%] sm:w-full max-w-sm object-cover rounded-sm transition-all duration-800 ease-[cubic-bezier(0.12,0.08,0,1.59)] hover:shadow-xl" src={vandetail.imageUrl} alt={`Image of ${vandetail.name}`} />
@@ -57,6 +50,19 @@ export default function HostVansDetail() {
                     <Outlet context={vandetail} />
                 </nav>
             </div>
+        )
+    }
+
+    return (
+        <div className="grow flex flex-col mt-10 px-5">
+            <Link to='..' relative="path" className="text-xs font-medium text-[#201F1D]  cursor-pointer">
+                &larr; <span className="underline">Back to all vans</span>
+            </Link>
+            <Suspense fallback={<HostVanDetailSkeleton />}>
+                <Await resolve={vandetailData.noncriticalData}>
+                    {renderHostVanDetails}
+                </Await>
+            </Suspense>
         </div>
     )
 }

@@ -3,6 +3,10 @@ import userIcon from '../assets/UserIcon.png';
 import { NavLink, Link } from 'react-router-dom';
 
 export default function NavBar() {
+    function logout() {
+        localStorage.removeItem("loggedin");
+    }
+
     return (
         <header className='bg-[#FFF7ED] flex justify-between items-center py-8 px-5 sm:py-5'>
             <div>
@@ -19,8 +23,9 @@ export default function NavBar() {
                     Vans
                 </NavLink>
                 <Link to="login">
-                    <img className="object-contain w-4.5 sm:w-5 cursor-pointer q" src={userIcon} alt="login" />
+                    <img className="object-contain w-4.5 sm:w-5 cursor-pointer" src={userIcon} alt="login" />
                 </Link>
+                <img onClick={logout} className="-ml-2 object-contain w-4.5 sm:w-5 cursor-pointer" src="https://img.icons8.com/?size=100&id=BdksXmxLaK8r&format=png&color=000000" alt="logout" />
             </nav>
         </header>
     )

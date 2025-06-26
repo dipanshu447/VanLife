@@ -1,27 +1,4 @@
-import { useLoaderData, Form, redirect, useActionData, useNavigation } from "react-router-dom";
-import { loginUser } from "../api";
-
-export function loader({ request }) {
-    return new URL(request.url).searchParams.get("message");
-}
-
-export async function action({ request }) {
-    const formData = await request.formData();
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const redirection = new URL(request.url).searchParams.get("redirectTo") || "/host";
-    try {
-        const res = await loginUser({ email, password });
-        localStorage.setItem("loggedin", true);
-        console.log(res);
-        const response = redirect(redirection);
-        response.body = true;
-        return response;
-    } catch (err) {
-        console.log(err);
-        return err.message;
-    }
-}
+import { useLoaderData, Form, useActionData, useNavigation } from "react-router-dom";
 
 export default function Login() {
     const navigation = useNavigation();

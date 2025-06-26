@@ -33,7 +33,7 @@ export default function Reviews() {
     const ratingsElements = ratings.map(rating => (
         <div key={rating.stars} className='flex items-center gap-2 text-sm'>
             <span className='flex-2'>{rating.stars} stars</span>
-            <div className='bg-[#B9B9B9] rounded h-2 flex-10 sm:flex-12 md:flex-14 lg:flex-18'>
+            <div className='bg-[#B9B9B9] rounded h-2 flex-9 sm:flex-12 md:flex-14 lg:flex-18'>
                 <div className='bg-[#FF8C38] h-2 rounded'
                     style={{ width: `${rating.percent}%` }}
                 ></div>

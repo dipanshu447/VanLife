@@ -11,9 +11,9 @@ export default function Login() {
             {message && <h2 className="text-red-500 font-semibold text-lg">{message}</h2>}
             {errorMessage && <h2 className="text-red-500 font-semibold text-lg">{errorMessage}</h2>}
             <div className="mt-4 flex flex-col w-full md:w-2xl">
-                <input className="w-full font-normal box-border px-4 bg-white py-2 border border-[#D1D5DB] rounded-t-md focus-visible:outline-[#e69b0a]" type="email" placeholder="Email address" name="email" />
-                <input className="w-full font-normal box-border px-4 bg-white py-2 border border-t-0 border-[#D1D5DB] rounded-b-md focus-visible:outline-[#e69b0a]" type="password" placeholder="Password" name="password" />
-                <button disabled={navigation.state === "submitting" ? true : false} type="submit" className='text-white transition-all duration-1000 ease-[cubic-bezier(0.12,0.08,0,1.59)] mt-6 w-full text-center truncate font-semibold bg-[#FF8C38] h-10 rounded-sm cursor-pointer hover:scale-101 hover:translate-px disabled:opacity-60'>
+                <input className="w-full font-normal box-border px-4 bg-white py-2 border border-[#D1D5DB] rounded-t-md focus-visible:outline-[#e69b0a]" type="email" placeholder="Email address" name="email" required/>
+                <input className="w-full font-normal box-border px-4 bg-white py-2 border border-t-0 border-[#D1D5DB] rounded-b-md focus-visible:outline-[#e69b0a]" type="password" placeholder="Password" name="password" required/>
+                <button disabled={navigation.state === "submitting"} type="submit" className='text-white transition-all duration-1000 ease-[cubic-bezier(0.12,0.08,0,1.59)] mt-6 w-full text-center truncate font-semibold bg-[#FF8C38] h-10 rounded-sm cursor-pointer hover:scale-101 hover:translate-px disabled:opacity-60'>
                     {navigation.state === "submitting" ? "Logging in..." : "Log in"}
                 </button>
             </div>

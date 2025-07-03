@@ -1,4 +1,4 @@
-import Bargraph from "../../components/Bargraph"
+import Bargraph from "../../components/Bargraph.jsx";
 
 export default function Income() {
     const transactionsData = [

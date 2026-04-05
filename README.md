@@ -3,6 +3,8 @@
 This repository contains my learning project built while following the **Scrimba course: "Learn React Router 6"** by **Bob Ziroll**.  
 The project is called **VanLife** a fictional van rental web app that helps users browse, learn about, and manage rental vans for trips and travelling.
 
+![Vanlife_preview](https://github.com/dipanshu447/VanLife/blob/main/public/preview.gif)
+
 ## About the VanLife Project
 
 **VanLife** is a multi-page React application built to demonstrate the power of **React Router**.

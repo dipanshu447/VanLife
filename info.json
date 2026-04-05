@@ -1,0 +1,28 @@
+{
+  "tagline": "Van rental SPA with nested routing and protected routes",
+  "featured": false,
+  "status": "completed",
+  "details": {
+    "overview": "A multi-page React application demonstrating advanced routing concepts like nested routes, protected routes, and dynamic URLs.",
+    "image": "https://github.com/dipanshu447/VanLife/raw/main/public/preview.gif",
+    "key_features": [
+      "Nested routing with layout structure",
+      "Protected routes with authentication logic",
+      "Dynamic routing using URL parameters",
+      "Dashboard-style navigation system",
+      "Reusable component architecture"
+    ],
+    "what_i_learned": [
+      "Deep understanding of React Router concepts",
+      "Implementing nested layouts and route structure",
+      "Handling protected routes and authentication logic",
+      "Using dynamic routing with params",
+      "Organizing large apps with proper routing structure"
+    ],
+    "tech_stack": {
+      "frontend": ["React", "React Router", "Tailwind CSS"],
+      "backend": ["MirageJS"],
+      "tools": ["Vite"]
+    }
+  }
+}

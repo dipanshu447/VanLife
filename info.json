@@ -1,28 +1,47 @@
 {
-  "tagline": "Van rental SPA with nested routing and protected routes",
+  "portfolio_order": 7,
   "featured": false,
+  "card_tags": [
+    "React Router",
+    "Protected Routes",
+    "SPA"
+  ],
+  "tagline": "Van rental application showcasing advanced routing, protected routes, and dashboard-based navigation.",
   "status": "completed",
   "details": {
-    "overview": "A multi-page React application demonstrating advanced routing concepts like nested routes, protected routes, and dynamic URLs.",
+    "overview": "VanLife is a React single-page application built to explore advanced routing concepts including nested routes, protected routes, dynamic URLs, and shared layouts. The project focuses on application structure, navigation patterns, and scalable frontend architecture.",
     "image": "https://github.com/dipanshu447/VanLife/raw/main/public/preview.gif",
+    "engineering_challenges": [
+      "Designing a scalable nested routing structure",
+      "Implementing protected routes and authentication flows",
+      "Managing dynamic route parameters and data loading",
+      "Creating reusable layouts across multiple pages"
+    ],
     "key_features": [
-      "Nested routing with layout structure",
-      "Protected routes with authentication logic",
+      "Nested routing with shared layouts",
+      "Protected routes with authentication checks",
       "Dynamic routing using URL parameters",
       "Dashboard-style navigation system",
-      "Reusable component architecture"
+      "Reusable component-based architecture"
     ],
     "what_i_learned": [
-      "Deep understanding of React Router concepts",
-      "Implementing nested layouts and route structure",
-      "Handling protected routes and authentication logic",
-      "Using dynamic routing with params",
-      "Organizing large apps with proper routing structure"
+      "Advanced React Router concepts and routing patterns",
+      "Implementing authentication-based route protection",
+      "Structuring larger React applications with nested layouts",
+      "Building maintainable navigation and page architecture"
     ],
     "tech_stack": {
-      "frontend": ["React", "React Router", "Tailwind CSS"],
-      "backend": ["MirageJS"],
-      "tools": ["Vite"]
+      "frontend": [
+        "React",
+        "React Router",
+        "Tailwind CSS"
+      ],
+      "backend": [
+        "MirageJS"
+      ],
+      "tools": [
+        "Vite"
+      ]
     }
   }
 }
